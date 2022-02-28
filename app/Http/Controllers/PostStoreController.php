@@ -15,7 +15,6 @@ class PostStoreController extends Controller
 
     public function __invoke(Request $request)
     {
-
         $this->validate($request, [
             'body' => 'required'
         ]);
@@ -23,8 +22,6 @@ class PostStoreController extends Controller
         $post = auth()->user()->posts()->create([
             'body' => $request->body
         ]);
-
-
         return new PostResource($post);
     }
 }
